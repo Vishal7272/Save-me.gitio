@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<title>Guess the fruit</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+<body>
+    <div class="container py-3 text-center">
+        <h1>Guess The Fruit</h1><br>
+        <img style="width:386px;height:350px" src={{tries}}>
+        {% if secret_word =='lemon' %}
+        <h3>Hint : I am yellow and medium size. I taste sour. What am I?</h3>
+
+        {% elif secret_word=='apple' %}
+        <h3>If you eat me, I will keep doctor away. I can be yellow, green, or red</h3>
+
+        {% elif secret_word=='strawberry' %}
+        <h3>I am red. I have got black spots on my face. I have got green cap too. I am very sweet</h3>
+
+        {% elif secret_word=='pineapple' %}
+        <h3>I am brown on outside and yellow inside. I am big and prickly. I have big prickly leaves growing on top of
+            me.
+            What am I? </h3>
+
+        {% elif secret_word=='kiwi' %}
+        <h3>I am brown on outside and green inside. I am hairy on outside. I can taste sweet or sour. What am I?</h3>
+
+        {% elif secret_word=='orange' %}
+        <h3>I am juicy and sweet. My name sounds the same as my colour. What am I?</h3>
+
+        {% elif secret_word=='watermelon' %}
+        <h3>Hello! I have got green and red pyjamas. I have got black buttons too. people eat me in summer</h3>
+
+        {% elif secret_word=='coconut' %}
+        <h3>I am white inside and brown on the outside. You can also find water inside me</h3>
+
+        {% elif secret_word=='grapes' %}
+        <h3>I am purple or green. I'm very sweet. I have got a green leaf. people make wine using my juice.</h3>
+
+        {% elif secret_word=='banana' %}
+        <h3>I am yellow in colour. Monkeys likes me. Vitamin B and C are my best friends</h3>
+
+        {% elif secret_word=='mango' %}
+        <h3>Yellow Fruit</h3>
+
+        {% endif %}
+
+        <div>
+            <b>{% for i in to_display %}
+                {% if i == " " %}
+                    &nbsp;&nbsp;&nbsp;
+                {% else %}
+                
+                <span> {{i}} </span>
+                {% endif %}
+                {% endfor %}</b>
+        </div>
+
+        <form action="{{ url_for('guess_fruit') }}" method=post>
+            <div>
+                <label>Enter your Guess:</label>
+                <div>
+                    <input type="text"  maxlength="1" name="letter">
+                </div>
+            </div>
+            <button class="btn btn-primary my-2" type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>

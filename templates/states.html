@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<title>Guess the Personality</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+<body>
+    <div class="container py-3 text-center">
+        <h1>Guess The State</h1> <br>
+        <img style="width:386px;height:350px" src={{tries}}>
+
+        {% if secret_word =='bihar' %}
+        <h3>Where is Gaya</h3>
+
+        {% elif secret_word=='delhi' %}
+        <h3>Where is Red Fort</h3>
+
+        {% elif secret_word=='gujrat' %}
+        <h3>Where is Gir National Park</h3>
+
+        {% elif secret_word=='himachal pradesh' %}
+        <h3>Where is  Manali</h3>
+
+        {% elif secret_word=='karnataka' %}
+        <h3>Where is  Mysore</h3>
+
+        {% elif secret_word=='maharashtra' %}
+        <h3>Where is Gateway of India</h3>
+
+        {% elif secret_word=='punjab' %}
+        <h3>Where is Amritsar</h3>
+
+        {% elif secret_word=='rajasthan' %}
+        <h3>Where is Udaipur</h3>
+
+        {% elif secret_word=='tamil nadu' %}
+        <h3>Where is  Pondicherry</h3>
+        
+        {% elif secret_word=='west bengal' %}
+        <h3>Where Is Mother House Of The Missionaries Of Charity	
+        </h3>
+        
+
+
+        {% endif %}
+
+        <div>
+            <b>{% for i in to_display %}
+                {% if i == " " %}
+                &nbsp;&nbsp;&nbsp;
+                {% else %}
+
+                <span> {{i}} </span>
+                {% endif %}
+                {% endfor %}</b>
+        </div>
+
+        <form action="{{ url_for('guess_state') }}" method=post>
+            <div>
+                <label>Enter your Guess:</label>
+                <div>
+                    <input type="text" maxlength="1" name="letter">
+                </div>
+            </div>
+            <button class="btn btn-primary my-2" type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>

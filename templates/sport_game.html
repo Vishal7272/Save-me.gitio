@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<title>Guess the Sport</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+<body>
+    <div class="container py-3 text-center">
+        <h1>Guess The Sport</h1> <br>
+        <img style="width:386px;height:350px" src={{tries}}>
+
+        {% if secret_word =='tennis' %}
+        <h3>Players cannot carry the ball or catch it with the racquet.</h3>
+
+        {% elif secret_word=='rugby' %}
+        <h3>You play this game in a team with an oval ball</h3>
+
+        {% elif secret_word=='table tennis' %}
+        <h3>You play this game with a table and bats </h3>
+
+        {% elif secret_word=='surfing' %}
+        <h3>You stand on the board in the sea</h3>
+
+        {% elif secret_word=='golf' %}
+        <h3>The ball must be hit using standard clubs from the start of each hole to the green and ultimately into the
+            hole, which is marked by a flag.</h3>
+
+        {% elif secret_word=='badminton' %}
+        <h3>A racket sport played by either two opposing players (singles) or two opposing pairs (doubles), who take
+            positions on opposite halves of a rectangular court that is divided by a net.</h3> 
+            
+        {% elif secret_word=='baseball' %}
+
+        <h3>In this game you hit a small,hard ball with a big bat</h3>
+
+        {% elif secret_word=='football' %}
+        <h3>The team with the most goals wins.</h3>
+
+        {% elif secret_word=='basketball' %}
+        <h3>Has Only five players per team on the court.</h3>
+
+        {% elif secret_word=='volleyball' %}
+        <h3>Team sport in which two teams of six players are separated by a net. Each team tries to score points by
+            grounding a ball on the other team's</h3>
+
+        {% elif secret_word=='swimming' %}
+        <h3>An individual or team racing sport that requires the use of one's entire body to move through water.</h3>
+
+        {% elif secret_word=='cricket' %}
+        <h3>A game played between two teams of eleven players on a field at the centre</h3>
+
+        {% elif secret_word=='pool' %}
+        <h3>A classification of cue sports played on a table with six pockets along the rails , into which balls are
+            deposited</h3>
+
+        {% elif secret_word=='boxing' %}
+        <h3>A combat sport in which two people, usually wearing protective gloves and other protective equipment such as
+            hand wraps and mouthguards</h3>
+
+        {% endif %}
+
+        <div>
+            <b>{% for i in to_display %}
+                {% if i == " " %}
+                    &nbsp;&nbsp;&nbsp;
+                {% else %}
+                
+                <span> {{i}} </span>
+                {% endif %}
+                {% endfor %}</b>
+        </div>
+
+        <form action="{{ url_for('guess_sport') }}" method=post>
+            <div>
+                <label>Enter your Guess:</label>
+                <div>
+                    <input type="text" maxlength="1" name="letter">
+                </div>
+            </div>
+            <button class="btn btn-primary my-2" type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>

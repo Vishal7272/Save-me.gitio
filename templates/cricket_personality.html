@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<title>Guess the Personality</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+<body>
+    <div class="container py-3 text-center">
+        <h1>Guess The Cricket Personality</h1> <br>
+        <img style="width:386px;height:350px" src={{tries}}>
+
+        {% if secret_word =='virat kohli' %}
+        <h3>Current indian cricket team captain.</h3>
+
+        {% elif secret_word=='rohit sharma' %}
+        <h3>Had scored 264 against Sri Lanka in a one-day international match</h3>
+
+        {% elif secret_word =='ms dhoni' %}
+        <h3>Who hit the iconic six to win 2011 World Cup</h3>
+
+        {% elif secret_word=='yuvraj singh' %}
+        <h3>which is the first indian player hit 6 ball 6 sixes</h3>
+
+        {% elif secret_word =='suresh raina' %}
+        <h3>Indian player called as Chinna Thala.</h3>
+
+        {% elif secret_word=='kl rahul' %}
+        <h3>who is current captain of kings xi punjab</h3>
+
+        {% elif secret_word =='shikhar dhawan' %}
+        <h3>Current India tour to sri lanka,who was the Indian captain</h3>
+
+        {% elif secret_word=='kapil dev' %}
+        <h3>which indian captain won the first world cup</h3>
+
+        {% elif secret_word =='sachin tendulkar' %}
+        <h3>who is the god of cricket.</h3>
+
+        {% elif secret_word=='jasprit bumrah' %}
+        <h3>Current Indian best bowler(Who plays in IPL for Mumbai Indians)</h3>
+
+
+        {% endif %}
+
+        <div>
+            <b>{% for i in to_display %}
+                {% if i == " " %}
+                &nbsp;&nbsp;&nbsp;
+                {% else %}
+
+                <span> {{i}} </span>
+                {% endif %}
+                {% endfor %}</b>
+        </div>
+
+        <form action="{{ url_for('guess_personality') }}" method=post>
+            <div>
+                <label>Enter your Guess:</label>
+                <div>
+                    <input type="text" maxlength="1" name="letter">
+                </div>
+            </div>
+            <button class="btn btn-primary my-2" type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>

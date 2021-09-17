@@ -1,0 +1,14 @@
+Tennis
+Rugby
+Surfing
+Golf
+Badminton
+Baseball
+football
+basketball
+volleyball
+swimming
+cricket
+pool
+boxing
+Table tennis
